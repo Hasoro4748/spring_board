@@ -1,0 +1,20 @@
+server:
+    port: 8080
+spring:
+    application:
+        name: AnonArticle
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: asd1234
+        url: jdbc:mysql://localhost:3306/anonarticle
+        username: root
+    jpa:
+        database: mysql
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true

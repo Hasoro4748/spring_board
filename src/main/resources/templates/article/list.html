@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h2>게시판</h2>
+      <a th:href="@{/article/write}">글쓰기</a>
+    </header>
+      <main>
+          <div class="articleList">
+              <table>
+                  <tr>
+                      <th>번호</th>
+                      <th>제목</th>
+                      <th>내용</th>
+                      <th>작성자</th>
+                      <th></th>
+                  </tr>
+                  <tr th:each="article : ${articleList}">
+                      <td>[[${article.articleId}]]</td>
+                      <td>[[${article.articleTitle}]]</td>
+                      <td>[[${article.articleContent}]]</td>
+                      <td>[[${article.articleAuthor}]]</td>
+                      <td>
+                          <a th:href="@{/article/modify/{id}(id=${article.articleId})}" class="btn btnModify">수정</a>
+                          <a th:href="@{/article/delete/{id}(id=${article.articleId})}" class="btn btnDelete">삭제</a>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+      </main>
+  </div>
+</body>
+</html>
