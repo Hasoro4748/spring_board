@@ -67,3 +67,15 @@ tr:nth-child(even) {
 tr:first-child {
     background-color: white;
 }
+.page{
+    text-align: center;
+}
+
+.page > a {
+    margin-top: 5px;
+    padding: 10px;
+    min-width: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+}

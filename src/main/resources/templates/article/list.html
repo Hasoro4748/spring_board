@@ -39,7 +39,6 @@
                       <a th:href="@{/article/list(pg=${(articlePage.start)-1})}" class="prev" >prev</a>
                   </th:block>
 
-
                   <th:block th:each="num:${#numbers.sequence(articlePage.start, articlePage.end)}">
                       <a th:href="@{/article/list(page=${num})}" th:class="${num == articlePage.pg} ? 'current' : 'num'">[[${num}]]</a>
                   </th:block>
