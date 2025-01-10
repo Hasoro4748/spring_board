@@ -5,6 +5,8 @@ import com.anonarticle.entity.AnonArticle;
 import com.anonarticle.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,6 +32,13 @@ public class ArticleService {
     public void insertArticle(AnonArticleDTO articleDTO){
         articleRepository.save(articleDTO.toEntity());
     }
+
+    public Page<AnonArticleDTO> getAllArticlePage(Pageable pageable){
+        Page<AnonArticle> anonArticlePage = articleRepository.findAllByOrderByArticleIdDesc(pageable);
+
+        return anonArticlePage.map(AnonArticle::toDTO);
+    }
+
 
     public AnonArticleDTO getArticleById(int id){
         Optional<AnonArticle> anonArticleOpt = articleRepository.findById(id);

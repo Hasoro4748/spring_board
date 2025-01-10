@@ -23,7 +23,7 @@
                       <th>작성자</th>
                       <th></th>
                   </tr>
-                  <tr th:each="article : ${articleList}">
+                  <tr th:each="article : ${articlePage.getDtoList()}">
                       <td>[[${article.articleId}]]</td>
                       <td>[[${article.articleTitle}]]</td>
                       <td>[[${article.articleContent}]]</td>
@@ -34,6 +34,20 @@
                       </td>
                   </tr>
               </table>
+              <div class="page">
+                  <th:block th:if="${articlePage.prev}">
+                      <a th:href="@{/article/list(pg=${(articlePage.start)-1})}" class="prev" >prev</a>
+                  </th:block>
+
+
+                  <th:block th:each="num:${#numbers.sequence(articlePage.start, articlePage.end)}">
+                      <a th:href="@{/article/list(page=${num})}" th:class="${num == articlePage.pg} ? 'current' : 'num'">[[${num}]]</a>
+                  </th:block>
+
+                  <th:block th:if="${articlePage.next}">
+                      <a  th:href="@{/article/list(page=${(articlePage.end)+1})}" class="next">next</a>
+                  </th:block>
+              </div>
           </div>
       </main>
   </div>
