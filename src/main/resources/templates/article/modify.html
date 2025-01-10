@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>글수정</title>
+
+    <link rel="stylesheet" href="/ArticleCommon.css" />
 </head>
 <body>
 <div id="wrapper">
     <header>
-        <h3>글수정</h3>
+        <div class="title">
+            <span>글수정</span>
+        </div>
     </header>
     <main id="board">
         <section class="write">
-
-            <form th:action="@{/article/modify}" method="post" name = "form">
-                <table border="0">
-                    <tr>
+            <form th:action="@{/article/modify}" method="post" name="form">
+                <table border="0" class="articleTable">
+                    <tr class="writeTr">
                         <th>제목</th>
-                        <td><input type="text" name="articleTitle" th:value="${article.getArticleTitle()}"/></td>
+                        <td>
+                            <input
+                                    type="text"
+                                    name="articleTitle"
+                                    th:value="${article.getArticleTitle()}"
+                            />
+                        </td>
                     </tr>
                     <tr>
                         <th>내용</th>
                         <td>
-                            <textarea name="articleContent">[[${article.getArticleContent()}]]</textarea>
+                  <textarea name="articleContent">[[${article.getArticleContent()}]]</textarea>
                         </td>
                     </tr>
                     <tr>
                         <th>작성자</th>
-                        <td><input type="text" name="articleAuthor" th:value="${article.getArticleAuthor()}"/></td>
+                        <td>
+                            <input
+                                    type="text"
+                                    name="articleAuthor"
+                                    th:value="${article.getArticleAuthor()}"
+                            />
+                        </td>
                     </tr>
-                    <input type="text" name="ArticleId" th:value="${article.getArticleId()}" hidden="hidden">
+                    <input
+                            type="text"
+                            name="ArticleId"
+                            th:value="${article.getArticleId()}"
+                            hidden="hidden"
+                    />
                 </table>
                 <div>
-                    <a th:href="@{/article/list}" class="btn btnCancel">취소</a>
-                    <input type="submit" value="작성완료" class="btn btnComplete"/>
+                    <a th:href="@{/article/list}" class="btn btnDelete">취소</a>
+                    <input type="submit" value="작성완료" class="btn btnComplete" />
                 </div>
             </form>
         </section>

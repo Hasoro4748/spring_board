@@ -20,7 +20,7 @@ public class AnonArticleController {
 
     @GetMapping("/article/write")
     public String write(){
-        return "/article/write";
+        return "article/write";
     }
 
     @PostMapping("/article/write")
@@ -43,7 +43,7 @@ public class AnonArticleController {
         return "redirect:/article/list";
     }
 
-    @DeleteMapping("/article/delete/{id}")
+    @GetMapping("/article/delete/{id}")
     public String deleteArticle(@PathVariable String id){
         articleService.deleteArticleById(Integer.parseInt(id));
         return "redirect:/article/list";

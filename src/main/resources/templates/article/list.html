@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>List</title>
+    <link rel="stylesheet" href="/ArticleCommon.css" />
 </head>
 <body>
   <div id="wrapper">
-    <header>
-      <h2>게시판</h2>
-      <a th:href="@{/article/write}">글쓰기</a>
-    </header>
+      <header>
+          <div class="title">
+              <span>게시판</span>
+              <a th:href="@{/article/write}">글쓰기</a>
+          </div>
+      </header>
       <main>
           <div class="articleList">
-              <table>
+              <table class="articleTable listTable">
                   <tr>
                       <th>번호</th>
                       <th>제목</th>
